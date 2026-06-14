@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-black text-white antialiased;
+  }
+}
+
+@layer components {
+  .brand-logo-text {
+    @apply relative inline-block font-black italic tracking-tighter leading-none uppercase;
+    font-size: clamp(3rem, 11vw, 8rem);
+    background: linear-gradient(to bottom, #ffffff 50%, #666666 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    padding-right: 0.2em;
+    padding-left: 0.1em;
+  }
+
+  .brand-logo-text::after {
+    content: "Studio235";
+    @apply absolute left-[calc(0.1em+2px)] top-[2px] -z-10 whitespace-nowrap;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
+    -webkit-text-fill-color: transparent;
+  }
+
+  .premium-card {
+    @apply bg-[#0a0a0a] border border-[#1a1a1a] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)];
+  }
+  
+  .premium-card:hover {
+    @apply border-[#444] -translate-y-1.5;
+  }
+}
